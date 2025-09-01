@@ -42,7 +42,7 @@ const Achievements = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-luxury">Elite Achievements</span>
+            <span className="text-gradient">Achievements</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Milestones that showcase dedication and growth
@@ -93,19 +93,19 @@ const Achievements = () => {
           <Card className="glass max-w-4xl mx-auto p-8 hover:glow-accent transition-all duration-300">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-3xl lg:text-4xl font-bold text-luxury mb-2">9.48</div>
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">9.48</div>
                 <p className="text-sm text-muted-foreground">GPA Score</p>
               </div>
               <div>
-                <div className="text-3xl lg:text-4xl font-bold text-luxury mb-2">3+</div>
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">3+</div>
                 <p className="text-sm text-muted-foreground">Projects Built</p>
               </div>
               <div>
-                <div className="text-3xl lg:text-4xl font-bold text-luxury mb-2">150+</div>
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">150+</div>
                 <p className="text-sm text-muted-foreground">Problems Solved</p>
               </div>
               <div>
-                <div className="text-3xl lg:text-4xl font-bold text-luxury mb-2">1000+</div>
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">1000+</div>
                 <p className="text-sm text-muted-foreground">Users Impacted</p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Menu, X, Download, Trophy } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,12 +51,11 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl gradient-luxury flex items-center justify-center animate-glow">
-                <span className="text-lg font-bold text-background">SP</span>
+              <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
+                <span className="text-lg font-bold text-primary-foreground">SP</span>
               </div>
               <span className="font-bold text-xl">Sanyam Phartyal</span>
-              <Badge variant="secondary" className="hidden sm:block text-xs border-accent/40">
-                <Trophy className="w-3 h-3 mr-1" />
+              <Badge variant="secondary" className="hidden sm:block text-xs">
                 Available
               </Badge>
             </div>
@@ -87,7 +86,7 @@ const Navigation = () => {
 
             {/* CTA Button */}
             <div className="hidden md:flex items-center gap-4">
-              <Button size="sm" variant="outline" className="glass border-primary/40 hover:border-accent/60 hover:glow-luxury transition-all duration-500 shimmer">
+              <Button size="sm" variant="outline" className="glass border-primary/30 hover:border-primary/60 hover:glow-primary transition-all duration-300">
                 <Download size={16} className="mr-2" />
                 Resume
               </Button>
@@ -121,7 +120,7 @@ const Navigation = () => {
                     {item.name}
                   </button>
                 ))}
-                <Button size="sm" variant="outline" className="glass border-primary/40 hover:border-accent/60 w-fit shimmer">
+                <Button size="sm" variant="outline" className="glass border-primary/30 hover:border-primary/60 w-fit">
                   <Download size={16} className="mr-2" />
                   Resume
                 </Button>
