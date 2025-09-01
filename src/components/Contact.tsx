@@ -62,7 +62,7 @@ const Contact = () => {
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-gradient">Let's Connect</span>
+              <span className="text-luxury">Let's Connect</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Ready to contribute to your team's success. Let's discuss how we can build something amazing together.
@@ -113,7 +113,7 @@ const Contact = () => {
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-bold mb-4">
-                  <span className="text-gradient">Ready to Start?</span>
+                  <span className="text-luxury">Ready to Start?</span>
                 </h3>
                 <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                   I'm actively seeking a Full Stack internship where I can apply my MERN stack expertise, 

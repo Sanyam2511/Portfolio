@@ -17,9 +17,9 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-gradient">About Me</span>
-            </h2>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-luxury">About Me</span>
+          </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Building the future, one line of code at a time
             </p>
@@ -70,7 +70,7 @@ const About = () => {
           {/* Skills Section */}
           <div className="animate-slide-up delay-200">
             <h3 className="text-3xl font-bold text-center mb-10">
-              <span className="text-gradient">Technical Skills</span>
+              <span className="text-luxury">Technical Excellence</span>
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {Object.entries(skills).map(([category, items], index) => (

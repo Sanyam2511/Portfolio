@@ -8,44 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 25% 5%;
-    --foreground: 210 40% 98%;
+    --background: 155 15% 8%;
+    --foreground: 45 95% 95%;
 
-    --card: 220 25% 8%;
-    --card-foreground: 210 40% 95%;
+    --card: 155 20% 10%;
+    --card-foreground: 45 90% 92%;
 
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 40% 95%;
+    --popover: 155 20% 10%;
+    --popover-foreground: 45 90% 92%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 25% 5%;
+    --primary: 160 95% 45%;
+    --primary-foreground: 155 15% 8%;
 
-    --secondary: 240 10% 15%;
-    --secondary-foreground: 210 40% 90%;
+    --secondary: 155 25% 15%;
+    --secondary-foreground: 45 85% 88%;
 
-    --muted: 240 8% 12%;
-    --muted-foreground: 217 10% 65%;
+    --muted: 155 20% 12%;
+    --muted-foreground: 160 15% 65%;
 
-    --accent: 270 90% 65%;
-    --accent-foreground: 220 25% 5%;
+    --accent: 45 95% 65%;
+    --accent-foreground: 155 15% 8%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 45 95% 95%;
 
-    --border: 240 10% 18%;
-    --input: 240 10% 15%;
-    --ring: 217 91% 60%;
+    --border: 155 25% 18%;
+    --input: 155 25% 15%;
+    --ring: 160 95% 45%;
 
     --radius: 0.75rem;
     
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(270 90% 65%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(240 10% 15%) 0%, hsl(220 25% 8%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(217 91% 60% / 0.1) 0%, hsl(270 90% 65% / 0.1) 100%);
-    --glow-primary: 0 0 30px hsl(217 91% 60% / 0.3);
-    --glow-accent: 0 0 50px hsl(270 90% 65% / 0.2);
-    --glass-bg: hsl(240 10% 15% / 0.7);
-    --glass-border: hsl(217 91% 60% / 0.2);
+    /* Custom design tokens - Emerald & Gold Premium Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(160 95% 45%) 0%, hsl(45 95% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(155 25% 15%) 0%, hsl(155 20% 10%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(160 95% 45% / 0.15) 0%, hsl(45 95% 65% / 0.15) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(45 95% 65%) 0%, hsl(35 85% 60%) 25%, hsl(160 95% 45%) 100%);
+    --glow-primary: 0 0 40px hsl(160 95% 45% / 0.4);
+    --glow-accent: 0 0 60px hsl(45 95% 65% / 0.3);
+    --glow-luxury: 0 0 80px hsl(45 95% 65% / 0.25), 0 0 120px hsl(160 95% 45% / 0.15);
+    --glass-bg: hsl(155 25% 15% / 0.8);
+    --glass-border: hsl(160 95% 45% / 0.25);
+    --shimmer: linear-gradient(110deg, transparent 25%, hsl(45 95% 65% / 0.3) 50%, transparent 75%);
 
     --sidebar-background: 0 0% 98%;
 
@@ -133,6 +136,10 @@ All colors MUST be HSL.
     background: var(--gradient-accent);
   }
   
+  .gradient-luxury {
+    background: var(--gradient-luxury);
+  }
+  
   .glow-primary {
     box-shadow: var(--glow-primary);
   }
@@ -141,10 +148,46 @@ All colors MUST be HSL.
     box-shadow: var(--glow-accent);
   }
   
+  .glow-luxury {
+    box-shadow: var(--glow-luxury);
+  }
+  
   .text-gradient {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  .text-luxury {
+    background: var(--gradient-luxury);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--shimmer);
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
   }
 }
