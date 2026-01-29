@@ -13,7 +13,7 @@ export const GhoststreamCard = () => {
           <div className="p-3 bg-blue-500/10 rounded-full border border-blue-500/20">
             <Laptop className="h-6 w-6 text-blue-400" />
           </div>
-          <span className="text-[10px] text-neutral-500 font-mono">CLIENT</span>
+          <span className="text-[10px] text-neutral-500 font-mono">USER</span>
         </div>
 
         <div className="h-[2px] bg-neutral-800 flex-1 mx-4 relative overflow-hidden rounded-full">
@@ -30,10 +30,10 @@ export const GhoststreamCard = () => {
         </div>
 
         <div className="flex flex-col items-center gap-2">
-          <div className="p-3 bg-purple-500/10 rounded-full border border-purple-500/20">
-            <Server className="h-6 w-6 text-purple-400" />
+          <div className="p-3 bg-blue-500/10 rounded-full border border-blue-500/20">
+            <Laptop className="h-6 w-6 text-blue-400" />
           </div>
-          <span className="text-[10px] text-neutral-500 font-mono">SERVER</span>
+          <span className="text-[10px] text-neutral-500 font-mono">USER</span>
         </div>
 
         <motion.div 
