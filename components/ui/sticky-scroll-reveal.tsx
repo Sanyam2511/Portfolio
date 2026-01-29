@@ -45,7 +45,6 @@ export const StickyScroll = ({
       className="h-[35rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 no-scrollbar"
       ref={ref}
     >
-      {/* LEFT SIDE: TEXT CONTENT (Minimalist) */}
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
@@ -73,19 +72,14 @@ export const StickyScroll = ({
           <div className="h-60" />
         </div>
       </div>
-      
-      {/* RIGHT SIDE: FLOATING VIEWPORT (Exploded View) */}
       <div
         className={cn(
           "hidden lg:block h-80 w-[450px] sticky top-16 overflow-hidden transition-all duration-500",
           contentClassName
         )}
       >
-        {/* Minimalist Corner Accents - Gives structure without a "box" */}
         <div className="absolute top-0 left-0 h-6 w-6 border-t border-l border-blue-500/30" />
         <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-blue-500/30" />
-        
-        {/* Background Ambient Glow */}
         <div className="absolute inset-0 bg-blue-500/[0.02] blur-3xl rounded-full" />
 
         {content.map((item, index) => (
@@ -100,7 +94,7 @@ export const StickyScroll = ({
             }}
             transition={{
               duration: 0.6,
-              ease: [0.23, 1, 0.32, 1] // Custom ease-out quint for smoother feel
+              ease: [0.23, 1, 0.32, 1]
             }}
             className="absolute inset-0 h-full w-full flex items-center justify-center p-6"
           >
@@ -108,7 +102,6 @@ export const StickyScroll = ({
           </motion.div>
         ))}
 
-        {/* Floating System Metadata */}
         <div className="absolute bottom-2 left-2 text-[8px] font-mono text-neutral-700 uppercase tracking-[0.2em]">
           viewport_0{activeCard + 1} // buffer_active
         </div>

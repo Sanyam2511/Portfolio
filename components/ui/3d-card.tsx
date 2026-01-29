@@ -12,16 +12,11 @@ export const Card3D = ({
   className?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-
-  // Use motion values to track coordinates
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
-  // Smooth out the movement with a spring
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  // Map the mouse position to rotation values
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
@@ -34,8 +29,6 @@ export const Card3D = ({
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-
-    // Calculate relative position (-0.5 to 0.5)
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
 
@@ -65,7 +58,7 @@ export const Card3D = ({
     >
       <div
         style={{
-          transform: "translateZ(50px)", // "Pushes" the content out for 3D depth
+          transform: "translateZ(50px)",
           transformStyle: "preserve-3d",
         }}
         className="h-full w-full"

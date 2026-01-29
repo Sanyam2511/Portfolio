@@ -48,10 +48,8 @@ export const TerminalFooter = () => {
 
   const handleDownload = () => {
     setIsDownloading(true);
-    // Simulate generation time
     setTimeout(() => {
       setIsDownloading(false);
-      // In a real app, you'd point to your public/resume.pdf
       window.open("/resume-placeholder.pdf", "_blank");
     }, 2500);
   };
@@ -59,8 +57,6 @@ export const TerminalFooter = () => {
   return (
     <footer className="w-full max-w-4xl mx-auto pb-20 px-5">
       <div className="flex flex-col md:flex-row gap-8 items-start">
-        
-        {/* Terminal Section */}
         <div className="flex-1 w-full bg-black border border-white/[0.2] rounded-xl overflow-hidden shadow-2xl">
           <div className="bg-neutral-900 px-4 py-2 border-b border-white/10 flex items-center justify-between">
             <div className="flex gap-1.5">
@@ -99,7 +95,6 @@ export const TerminalFooter = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
         <div className="w-full md:w-72 flex flex-col gap-4">
           <h3 className="text-xl font-bold text-neutral-200">Ready to build?</h3>
           <p className="text-sm text-neutral-500">
@@ -122,7 +117,6 @@ export const TerminalFooter = () => {
                 Print Resume
               </>
             )}
-            {/* Animated Loading Bar for Button Background */}
             {isDownloading && (
               <motion.div
                 initial={{ x: "-100%" }}

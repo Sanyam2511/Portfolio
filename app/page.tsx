@@ -10,7 +10,6 @@ import { GraduationCap, Award, BookOpen, GitCommit,Cpu,Hash,Activity, Github, Ex
 import { TimelineLine } from "@/components/ui/timeline-line";
 import { TerminalFooter } from "@/components/ui/terminal-footer";
 import Image from "next/image";
-// --- IMPORT OFFICIAL BRAND ICONS ---
 import { 
   SiNextdotjs,
   SiReact,
@@ -28,7 +27,6 @@ import {
   SiFigma
 } from "react-icons/si";
 
-// --- EXPERIENCE CONTENT ---
 const internshipContent = [
   {
     title: "Internship @ [Company Name]",
@@ -40,12 +38,9 @@ const internshipContent = [
           src="/image.png" 
           alt="Document Processing Flow Architecture"
           fill
-          // object-contain: Ensures the whole diagram is visible without cropping.
-          // p-2: Adds a tiny bit of padding inside the border so the image doesn't touch it.
           className="object-contain p-2 opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-[1.02]"
         />
         
-        {/* Optional: Subtle digital scanline overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px] pointer-events-none opacity-20" />
       </div>
     ),
@@ -55,7 +50,6 @@ const internshipContent = [
     description:
       "I took ownership of the new User Analytics Dashboard. Used Recharts for data visualization and implemented Redux for complex state management across 4 different views.",
     content: (
-        // Visual: Mini Chart Mockup
       <div className="h-full w-full bg-neutral-900 border border-neutral-700 rounded-md flex items-end justify-center gap-2 p-4">
         <div className="w-4 h-12 bg-blue-500 rounded-t"/>
         <div className="w-4 h-24 bg-blue-400 rounded-t"/>
@@ -70,7 +64,6 @@ const internshipContent = [
     description:
       "In my final month, I focused on Core Web Vitals. Reduced LCP by 40% by implementing image lazy loading and code splitting. Shipped to production for 10k+ users.",
     content: (
-        // Visual: Success Terminal
       <div className="h-full w-full bg-black border border-neutral-800 rounded-md p-4 font-mono text-xs text-green-400 flex flex-col justify-center">
         <p>$ npm run build</p>
         <p className="text-neutral-500">Creating an optimized production build...</p>
@@ -112,7 +105,6 @@ const educationData = [
   },
 ];
 
-// --- SKILLS LIST ---
 const stackItems = [
     { title: "Next.js", icon: <SiNextdotjs className="h-full w-full text-white" />, href: "#" },
     { title: "React", icon: <SiReact className="h-full w-full text-blue-400" />, href: "#" },
@@ -135,17 +127,13 @@ export default function Home() {
     <main className="min-h-screen text-white py-20 px-5 flex flex-col items-center">
       
       <div className="max-w-5xl w-full mb-40 mt-10 ml-30 relative">
-        
-        {/* Decorative System Coordinates */}
         <div className="absolute -top-10 -left-10 font-mono text-[10px] text-neutral-800 hidden md:block">
           LOC: 30.3165° N, 78.0322° E // SYS_READY: TRUE
         </div>
 
         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
           
-          {/* 1. PORTRAIT: The "Floating Scanner" look */}
           <div className="relative group">
-            {/* Corner Brackets to frame the photo without a full box */}
             <div className="absolute -top-2 -left-2 h-8 w-8 border-t-2 border-l-2 border-blue-500/40" />
             <div className="absolute -bottom-2 -right-2 h-8 w-8 border-b-2 border-r-2 border-blue-500/40" />
             
@@ -157,13 +145,11 @@ export default function Home() {
                     fill
                     className="object-cover"
                   />
-                  {/* Digital scanline effect overlay */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent h-2 w-full animate-scan" />
                </div>
             </Card3D>
           </div>
 
-          {/* 2. BIO: The "Architect Metadata" look */}
           <div className="flex-1 space-y-8">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -184,7 +170,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* 3. LINKS: Minimalist "Protocol" List */}
             <div className="flex flex-wrap gap-x-12 gap-y-4 pt-4 border-t border-white/5">
               <a href="#" className="flex items-center gap-2 group">
                 <Hash className="h-4 w-4 text-blue-500" />
@@ -250,9 +235,7 @@ export default function Home() {
             </h2>
           </div>
           
-          {/* No border, no background—just the dock floating on the grid */}
           <div className="w-full relative py-10">
-            {/* Subtle glow behind the dock */}
             <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
             
             <div className="relative z-10">
@@ -262,7 +245,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Metadata floating near the dock */}
             <div className="absolute -bottom-4 right-0 font-mono text-[10px] text-neutral-600 uppercase tracking-widest">
               Active_Modules: {stackItems.length} // Runtime: Node.js_v20
             </div>
@@ -277,7 +259,6 @@ export default function Home() {
           </h2>
         </div>
   
-      {/* The container is now completely transparent */}
       <div className="w-full relative">
         <StickyScroll content={internshipContent} />
       </div>
@@ -294,11 +275,8 @@ export default function Home() {
       <TimelineLine>
         {educationData.map((edu, idx) => (
           <div key={idx} className="relative pl-12 md:pl-24 group">
-            
-            {/* Branch Marker (The Commit Dot) */}
             <div className="absolute left-[-6px] md:left-[34px] top-2 h-4 w-4 rounded-full border-2 border-blue-500 bg-neutral-950 z-20 group-hover:scale-125 transition-transform duration-300 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
             
-            {/* Version Metadata */}
             <div className="flex flex-col space-y-4">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="px-2 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-[10px] font-mono text-blue-400 uppercase tracking-widest">
@@ -322,7 +300,6 @@ export default function Home() {
                 {`// ${edu.description}`}
               </p>
 
-              {/* Result Badge - "The Output" */}
               <div className="flex items-center gap-6 pt-2">
                 <div className="flex items-center gap-2">
                   <Cpu className="h-4 w-4 text-neutral-700" />
@@ -342,7 +319,6 @@ export default function Home() {
     </div>
 
       <div className="max-w-4xl mx-auto w-full mt-2">
-        {/* Consistent heading style used in other sections */}
         <h2 className="text-2xl font-semibold mb-8 text-neutral-200">Initialize Connection</h2>
         
         <TerminalFooter />

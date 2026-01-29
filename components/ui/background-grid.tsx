@@ -13,9 +13,7 @@ export const BackgroundGrid = () => {
   }, []);
 
   return (
-    // We keep the base color here so it covers the whole screen
     <div className="fixed inset-0 -z-50 bg-neutral-950 pointer-events-none">
-      {/* 1. The Neural Grid */}
       <div 
         className="absolute inset-0 opacity-25"
         style={{
@@ -29,7 +27,6 @@ export const BackgroundGrid = () => {
         }}
       />
 
-      {/* 2. The Spotlight */}
       <div
         className="absolute inset-0 transition-opacity duration-500"
         style={{
