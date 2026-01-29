@@ -26,6 +26,25 @@ body {
 }
 
 @layer utilities {
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .hover-pause:hover .animate-scroll {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

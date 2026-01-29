@@ -17,10 +17,12 @@ export const StickyScroll = ({
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
+  
   const { scrollYProgress } = useScroll({
     container: ref,
     offset: ["start start", "end start"],
   });
+  
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -40,52 +42,76 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 no-scrollbar"
+      className="h-[35rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 no-scrollbar"
       ref={ref}
     >
+      {/* LEFT SIDE: TEXT CONTENT (Minimalist) */}
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
+            <div key={item.title + index} className="my-32">
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
+                  opacity: activeCard === index ? 1 : 0.2,
                 }}
-                className="text-2xl font-bold text-slate-100"
+                className="text-3xl font-bold text-neutral-100 tracking-tight"
               >
                 {item.title}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
+                  opacity: activeCard === index ? 1 : 0.2,
                 }}
-                className="text-kg text-slate-300 max-w-sm mt-10"
+                className="text-lg text-neutral-400 max-w-sm mt-10 font-light leading-relaxed"
               >
                 {item.description}
               </motion.p>
             </div>
           ))}
-          <div className="h-40" />
+          <div className="h-60" />
         </div>
       </div>
+      
+      {/* RIGHT SIDE: FLOATING VIEWPORT (Exploded View) */}
       <div
         className={cn(
-          "hidden lg:block h-60 w-80 rounded-md sticky top-10 overflow-hidden",
+          "hidden lg:block h-80 w-[450px] sticky top-16 overflow-hidden transition-all duration-500",
           contentClassName
         )}
       >
-        {/* Simple fade transition for the right-side content */}
-        <motion.div
-            key={activeCard}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="h-full w-full"
-        >
-             {content[activeCard].content ?? null}
-        </motion.div>
+        {/* Minimalist Corner Accents - Gives structure without a "box" */}
+        <div className="absolute top-0 left-0 h-6 w-6 border-t border-l border-blue-500/30" />
+        <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-blue-500/30" />
+        
+        {/* Background Ambient Glow */}
+        <div className="absolute inset-0 bg-blue-500/[0.02] blur-3xl rounded-full" />
+
+        {content.map((item, index) => (
+          <motion.div
+            key={"content" + index}
+            initial={{ opacity: 0, x: 20, scale: 0.95 }}
+            animate={{
+              opacity: activeCard === index ? 1 : 0,
+              x: activeCard === index ? 0 : 20,
+              scale: activeCard === index ? 1 : 0.95,
+              filter: activeCard === index ? "blur(0px)" : "blur(8px)",
+            }}
+            transition={{
+              duration: 0.6,
+              ease: [0.23, 1, 0.32, 1] // Custom ease-out quint for smoother feel
+            }}
+            className="absolute inset-0 h-full w-full flex items-center justify-center p-6"
+          >
+            {item.content ?? null}
+          </motion.div>
+        ))}
+
+        {/* Floating System Metadata */}
+        <div className="absolute bottom-2 left-2 text-[8px] font-mono text-neutral-700 uppercase tracking-[0.2em]">
+          viewport_0{activeCard + 1} // buffer_active
+        </div>
       </div>
     </motion.div>
   );
