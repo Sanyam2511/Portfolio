@@ -43,7 +43,7 @@ const internshipContent = [
     title: "Internship @ FlowbitAI",
     description: "Joined the frontend team as a Full Stack Intern. Tasked with architecting complex document processing flows and migrating legacy components to Next.js 14 while improving maintainability and readability.",
     content: (
-      <div className="relative h-[85%] w-full rounded-xl overflow-hidden group border border-blue-500/20 bg-blue-950/5">
+      <div className="relative h-full w-full rounded-xl overflow-hidden group border border-blue-500/20 bg-blue-950/5">
         <Image 
           src="/image.png" 
           alt="Document Processing Architecture"
@@ -58,7 +58,7 @@ const internshipContent = [
     title: "Logic Development & State Management",
     description: "Built multiple production routes and implemented Redux for complex state management across 4 different views, ensuring a seamless data flow between the server and the frontend.",
     content: (
-      <div className="h-[85%] w-full bg-neutral-900/50 border border-neutral-700/50 rounded-xl flex items-end justify-center gap-2 p-6">
+      <div className="h-full w-full bg-neutral-900/50 border border-neutral-700/50 rounded-xl flex items-end justify-center gap-2 p-6">
         <div className="w-4 h-12 bg-blue-500/50 rounded-t animate-pulse"/>
         <div className="w-4 h-24 bg-blue-400/50 rounded-t animate-pulse [animation-delay:0.2s]"/>
         <div className="w-4 h-16 bg-blue-600/50 rounded-t animate-pulse [animation-delay:0.4s]"/>
@@ -70,7 +70,7 @@ const internshipContent = [
     title: "Performance Optimization",
     description: "Reduced LCP by 40% through image lazy loading and code splitting. Successfully resolved critical production bugs to maintain high system availability.",
     content: (
-      <div className="h-[85%] w-full bg-black/60 border border-neutral-800 rounded-xl p-6 font-mono text-xs text-green-400 flex flex-col justify-center">
+      <div className="h-full w-full bg-black/60 border border-neutral-800 rounded-xl p-6 font-mono text-xs text-green-400 flex flex-col justify-center">
         <p>$ npm run build</p>
         <p className="text-neutral-500">Creating optimized production build...</p>
         <p>✓ Compiled successfully</p>
@@ -209,7 +209,7 @@ export default function Home() {
         </BentoGrid>
       </div>
 
-      <div id="arsenal" className="max-w-4xl mx-auto w-full mb-40 flex flex-col items-center">
+      <div id="arsenal" className="max-w-4xl mx-auto w-full mb-40 flex flex-col items-center scroll-mt-32">
         <div className="flex items-center gap-4 mb-12 self-start"><div className="h-px w-12 bg-blue-500/50" /><h2 className="text-sm font-mono uppercase tracking-[0.3em] text-blue-400">System Dependencies</h2></div>
         <div className="w-full relative py-10">
           <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -217,12 +217,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="lifecycle" className="max-w-4xl mx-auto w-full mb-40">
+      <div id="lifecycle" className="max-w-4xl mx-auto w-full mb-40 scroll-mt-32">
         <div className="flex items-center gap-4 mb-12"><div className="h-px w-12 bg-blue-500/50" /><h2 className="text-sm font-mono uppercase tracking-[0.3em] text-blue-400">Professional_Lifecycle</h2></div>
         <div className="w-full relative"><StickyScroll content={internshipContent} /></div>
       </div>
 
-      <div id="academics" className="max-w-4xl mx-auto w-full mb-40">
+      <div id="academics" className="max-w-4xl mx-auto w-full mb-40 scroll-mt-32">
         <div className="flex items-center gap-4 mb-16"><div className="h-px w-12 bg-blue-500/50" /><h2 className="text-sm font-mono uppercase tracking-[0.3em] text-blue-400">Academic_Build_History</h2></div>
         <TimelineLine>
           {educationData.map((edu, idx) => (
@@ -259,6 +259,7 @@ export default function Home() {
               </div>
           </div>
       </div>
+
       <div className="max-w-4xl mx-auto w-full mt-2" id="contact">
         <div className="flex items-center gap-4 mb-12 self-start"><div className="h-px w-12 bg-blue-500/50" /><h2 className="text-sm font-mono uppercase tracking-[0.3em] text-blue-400">Initialize Connection</h2></div>
         <TerminalFooter />
@@ -270,31 +271,31 @@ export default function Home() {
   );
 }
 
-    function AchievementNode({ item }: { item: any }) {
-        return (
-            <div className="group relative flex flex-col items-start min-w-[280px] max-w-[320px] transition-all duration-500">
-                <span className="absolute -top-12 -left-4 text-8xl font-black text-white/[0.03] select-none pointer-events-none group-hover:text-blue-500/[0.05] transition-colors duration-700">
-                    {item.hash}
-                </span>
-                <div className="absolute -top-4 -left-4 h-8 w-8 border-t border-l border-white/5 group-hover:border-blue-500/40 transition-all duration-500" />
-                <div className="relative z-10 space-y-6 w-full">
-                    <div className="flex items-center justify-between w-full">
-                        <div className="p-3 bg-neutral-950 rounded-xl border border-white/5 group-hover:border-blue-500/30 transition-all">{item.icon}</div>
-                        <div className="flex gap-1">
-                            {[1, 2, 3, 4, 5].map((bar) => (
-                                <div key={bar} className={`h-3 w-1 rounded-full transition-all duration-500 ${bar <= 4 ? 'bg-blue-500/40' : 'bg-neutral-800'} group-hover:bg-blue-400`} />
-                            ))}
-                        </div>
-                    </div>
-                    <div className="space-y-1">
-                        <h3 className="text-5xl font-black text-white tracking-tighter group-hover:text-blue-400 transition-colors uppercase">{item.stat}</h3>
-                        <div className="flex items-center gap-2">
-                            <div className="h-1 w-1 rounded-full bg-blue-500 animate-pulse" />
-                            <p className="text-xs font-mono text-blue-400 uppercase tracking-[0.2em]">{item.label}</p>
-                        </div>
-                        <p className="text-sm text-neutral-500 font-light leading-relaxed pt-2">{item.sublabel}</p>
+function AchievementNode({ item }: { item: any }) {
+    return (
+        <div className="group relative flex flex-col items-start min-w-[280px] max-w-[320px] transition-all duration-500">
+            <span className="absolute -top-12 -left-4 text-8xl font-black text-white/[0.03] select-none pointer-events-none group-hover:text-blue-500/[0.05] transition-colors duration-700">
+                {item.hash}
+            </span>
+            <div className="absolute -top-4 -left-4 h-8 w-8 border-t border-l border-white/5 group-hover:border-blue-500/40 transition-all duration-500" />
+            <div className="relative z-10 space-y-6 w-full">
+                <div className="flex items-center justify-between w-full">
+                    <div className="p-3 bg-neutral-950 rounded-xl border border-white/5 group-hover:border-blue-500/30 transition-all">{item.icon}</div>
+                    <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((bar) => (
+                            <div key={bar} className={`h-3 w-1 rounded-full transition-all duration-500 ${bar <= 4 ? 'bg-blue-500/40' : 'bg-neutral-800'} group-hover:bg-blue-400`} />
+                        ))}
                     </div>
                 </div>
+                <div className="space-y-1">
+                    <h3 className="text-5xl font-black text-white tracking-tighter group-hover:text-blue-400 transition-colors uppercase">{item.stat}</h3>
+                    <div className="flex items-center gap-2">
+                        <div className="h-1 w-1 rounded-full bg-blue-500 animate-pulse" />
+                        <p className="text-xs font-mono text-blue-400 uppercase tracking-[0.2em]">{item.label}</p>
+                    </div>
+                    <p className="text-sm text-neutral-500 font-light leading-relaxed pt-2">{item.sublabel}</p>
+                </div>
             </div>
-        );
-    }
+        </div>
+    );
+}

@@ -1,4 +1,3 @@
-// components/ui/sticky-scroll-reveal.tsx
 "use client";
 import React, { useRef } from "react";
 import { useMotionValueEvent, useScroll, motion } from "framer-motion";
@@ -42,13 +41,17 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      className="h-[35rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 no-scrollbar"
+      className="h-[35rem] overflow-y-auto flex justify-center relative lg:space-x-10 rounded-md p-4 md:p-10 no-scrollbar"
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-32">
+            <div key={item.title + index} className="my-32 relative group/card">
+              <div className="absolute inset-0 lg:hidden -z-10 opacity-[0.08] blur-[2px] pointer-events-none scale-110">
+                {item.content}
+              </div>
+
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{
@@ -72,6 +75,7 @@ export const StickyScroll = ({
           <div className="h-60" />
         </div>
       </div>
+
       <div
         className={cn(
           "hidden lg:block h-80 w-[450px] sticky top-16 overflow-hidden transition-all duration-500",
