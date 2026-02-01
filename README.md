@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sanyam Phartyal | Full-Stack Architect
 
-## Getting Started
+A specialized developer engineering high-performance ecosystems and **real-time P2P systems**. Focused on precision-built web applications with a current **9.45 CGPA** academic standing.
 
-First, run the development server:
+## Featured Project: Ghoststream
+**Ghoststream** is a real-time, peer-to-peer file-sharing ecosystem.
+* **Core Tech**: WebRTC, Socket.io, Next.js.
+* **Deployment**: Vercel (Client) and Render (Server).
+* **Capabilities**: Direct P2P data streaming for secure, fast file transfers.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## System Arsenal
+The core dependencies powering my builds:
+* **Frontend**: Next.js 14, React, Tailwind CSS.
+* **Backend**: Node.js, Express, Prisma.
+* **Language**: TypeScript.
+* **Database**: PostgreSQL, MongoDB.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Academic & Professional Lifecycle
+* **B.Tech in Computer Science**: DIT University, Dehradun (2023–2027).
+* **Full-Stack Intern**: Architected document processing flows and Next.js migrations.
+* **Milestones**: 200+ LeetCode problems solved and multiple hackathon finalist.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Initialize Connection
+* **GitHub**: [/Sanyam2511](https://github.com/Sanyam2511)
+* **LinkedIn**: [Sanyam Phartyal](https://www.linkedin.com/in/sanyam-phartyal-a21baa350/)
