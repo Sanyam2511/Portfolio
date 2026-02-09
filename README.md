@@ -23,3 +23,4 @@ The core dependencies powering my builds:
 ## 🌐 Initialize Connection
 * **GitHub**: [/Sanyam2511](https://github.com/Sanyam2511)
 * **LinkedIn**: [Sanyam Phartyal](https://www.linkedin.com/in/sanyam-phartyal-a21baa350/)
+* **Live Link**: [https://portfolio-steel-gamma-97.vercel.app/](https://portfolio-steel-gamma-97.vercel.app/)
