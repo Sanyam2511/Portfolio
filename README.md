@@ -1,4 +1,4 @@
-# Sanyam Phartyal | Full-Stack Architect
+# Sanyam Phartyal | Full-Stack Developer
 
 A specialized developer engineering high-performance ecosystems and **real-time P2P systems**. Focused on precision-built web applications with a current **9.45 CGPA** academic standing.
 
