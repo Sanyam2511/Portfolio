@@ -3,6 +3,7 @@
 import Link from "next/link"; 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { GhoststreamCard } from "@/components/ghoststream-card";
+import { VotingPlatformCard } from "@/components/voting-platform-card";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { Card3D } from "@/components/ui/3d-card";
@@ -13,7 +14,8 @@ import Image from "next/image";
 import { 
   Globe, 
   Code, 
-  Terminal, 
+  Terminal,
+  Vote, 
   Link as LinkIcon, 
   GraduationCap, 
   Award, 
@@ -166,21 +168,26 @@ export default function Home() {
       </div>
 
       <div id="deployments" className="max-w-5xl mx-auto w-full mb-40 scroll-mt-32">
-        <div className="flex items-center gap-4 mb-12 self-start"><div className="h-px w-12 bg-blue-500/50" /><h2 className="text-sm font-mono uppercase tracking-[0.3em] text-blue-400">Selected Works</h2></div>
-        <BentoGrid className="md:auto-rows-[25rem] gap-8">
+        <div className="flex items-center gap-4 mb-12 self-start">
+          <div className="h-px w-12 bg-blue-500/50" />
+          <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-blue-400">Selected Works</h2>
+        </div>
+        <BentoGrid className="md:auto-rows-[22rem] gap-8">
+            
+            {/* 1. GHOSTSTREAM -> Changed to md:col-span-1 to make it leaner */}
             <Link 
               href="https://ghoststream-vbbi.vercel.app" 
               target="_blank" 
-              className="md:col-span-2 group relative overflow-hidden rounded-xl bg-blue-500/[0.02] border border-white/5 hover:border-blue-500/30 transition-all"
+              className="md:col-span-1 group relative overflow-hidden rounded-xl bg-blue-500/[0.02] border border-white/5 hover:border-blue-500/30 transition-all"
             >
               <div className="absolute top-2 left-2 h-4 w-4 border-t border-l border-blue-500/30 z-20" />
               <div className="absolute bottom-2 right-2 h-4 w-4 border-b border-r border-blue-500/30 z-20" />
               <BentoGridItem
-                  title={<div className="space-y-1"><h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Ghoststream</h3><p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: LIVE</p></div>}
-                  description="Real-time P2P file sharing ecosystem built with WebRTC."
+                  title={<div className="space-y-1"><h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Ghoststream</h3><p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: LIVE</p></div>}
+                  description="Real-time P2P sharing via WebRTC."
                   header={
-                    <div className="relative flex-1 w-full h-full min-h-[16rem] overflow-hidden">
-                      <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
+                    <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden">
+                      <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105 flex items-center">
                         <GhoststreamCard />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-90 pointer-events-none" />
@@ -191,6 +198,26 @@ export default function Home() {
               />
             </Link>
             
+            <BentoGridItem 
+              title={
+                <div className="space-y-1">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">SecureVote</h3>
+                  <p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: COMPILED</p>
+                </div>
+              }
+              description="A secure, transparent voting system with receipt-based cryptographic verification." 
+              header={
+                <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden rounded-xl border border-white/5">
+                  <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
+                     <VotingPlatformCard />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-80 pointer-events-none" />
+                </div>
+              } 
+              icon={<Vote className="h-4 w-4 text-emerald-500" />} 
+              className="md:col-span-2 border border-white/5 bg-white/[0.01]" 
+            />
+
             <BentoGridItem 
               title="Portfolio V2" 
               description="Next.js 14 developer environment." 
