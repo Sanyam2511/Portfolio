@@ -50,7 +50,12 @@ export const TerminalFooter = () => {
     setIsDownloading(true);
     setTimeout(() => {
       setIsDownloading(false);
-      window.open("/resume-placeholder.pdf", "_blank");
+      const link = document.createElement('a');
+      link.href = "/Sanyam-Phartyal-Resume (1).pdf";
+      link.download = "Sanyam-Phartyal-Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }, 2500);
   };
 
@@ -82,7 +87,6 @@ export const TerminalFooter = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   className="bg-transparent border-none outline-none flex-1 text-white p-0 m-0"
-                  autoFocus
                   placeholder={step === "command" ? "type help..." : ""}
                 />
               </form>
