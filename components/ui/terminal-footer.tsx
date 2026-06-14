@@ -51,7 +51,7 @@ export const TerminalFooter = () => {
     setTimeout(() => {
       setIsDownloading(false);
       const link = document.createElement('a');
-      link.href = "/Sanyam-Phartyal-Resume (1).pdf";
+      link.href = "/Sanyam-Phartyal-Resume.pdf";
       link.download = "Sanyam-Phartyal-Resume.pdf";
       document.body.appendChild(link);
       link.click();
