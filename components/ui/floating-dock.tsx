@@ -37,12 +37,12 @@ function IconContainer({
   const width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
-    damping: 12,
+    damping: 15,
   });
   const height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
-    damping: 12,
+    damping: 15,
   });
 
   const [hovered, setHovered] = useState(false);
@@ -90,13 +90,13 @@ export const FloatingDock = ({
   return (
     <div
       className={cn(
-        "mx-auto flex h-48 items-center gap-4 bg-neutral-900/20 border border-white/5 rounded-xl px-4 hover-pause w-full overflow-hidden mask-linear-gradient",
+        "mx-auto flex h-48 items-center gap-4 bg-neutral-900/20 border border-white/5 rounded-xl px-4 w-full overflow-hidden mask-linear-gradient group",
         desktopClassName
       )}
-      onMouseMove={(e) => mouseX.set(e.pageX)}
+      onMouseMove={(e) => mouseX.set(e.clientX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
-      <div className="flex gap-4 animate-scroll min-w-max items-center pt-4">
+      <div className="flex gap-4 animate-scroll group-hover:[animation-play-state:paused] min-w-max items-center pt-4">
         {items.map((item, idx) => (
           <IconContainer mouseX={mouseX} key={`a-${item.title}-${idx}`} {...item} />
         ))}
