@@ -16,12 +16,12 @@ export const Navbar = () => {
   });
 
   const navLinks = [
-    { name: "01_Identity", href: "#identity" },
-    { name: "02_Deployments", href: "#deployments" },
-    { name: "03_Arsenal", href: "#arsenal" },
-    { name: "04_Lifecycle", href: "#lifecycle" },
-    { name: "05_Academics", href: "#academics" },
-    { name: "06_Achievements", href: "#achievements" },
+    { name: "About", href: "#identity" },
+    { name: "Projects", href: "#deployments" },
+    { name: "Skills", href: "#arsenal" },
+    { name: "Experience", href: "#lifecycle" },
+    { name: "Education", href: "#academics" },
+    { name: "Achievements", href: "#achievements" },
   ];
 
   return (
