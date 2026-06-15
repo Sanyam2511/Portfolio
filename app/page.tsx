@@ -198,25 +198,31 @@ export default function Home() {
               />
             </Link>
             
-            <BentoGridItem 
-              title={
-                <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">SecureVote</h3>
-                  <p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: COMPILED</p>
-                </div>
-              }
-              description="A secure, transparent voting system with receipt-based cryptographic verification." 
-              header={
-                <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden rounded-xl border border-white/5">
-                  <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
-                     <VotingPlatformCard />
+            <Link 
+              href="https://online-voting-system-live.vercel.app" 
+              target="_blank" 
+              className="md:col-span-2 group relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.01] hover:border-emerald-500/30 transition-all"
+            >
+              <BentoGridItem 
+                title={
+                  <div className="space-y-1">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">SecureVote</h3>
+                    <p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: LIVE</p>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-80 pointer-events-none" />
-                </div>
-              } 
-              icon={<Vote className="h-4 w-4 text-emerald-500" />} 
-              className="md:col-span-2 border border-white/5 bg-white/[0.01]" 
-            />
+                }
+                description="A secure, transparent voting system with receipt-based cryptographic verification." 
+                header={
+                  <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden rounded-xl border border-white/5">
+                    <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
+                       <VotingPlatformCard />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-80 pointer-events-none" />
+                  </div>
+                } 
+                icon={<Vote className="h-4 w-4 text-emerald-500" />} 
+                className="h-full border-none bg-transparent" 
+              />
+            </Link>
 
             <BentoGridItem 
               title="Portfolio V2" 
