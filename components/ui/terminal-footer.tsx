@@ -8,6 +8,7 @@ export const TerminalFooter = () => {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>(["Welcome to Sanyam-OS v1.0.0", "Type 'contact --send' to get in touch."]);
   const [step, setStep] = useState<"command" | "email" | "message" | "sending" | "success">("command");
+  const [userEmail, setUserEmail] = useState("");
   const [isDownloading, setIsDownloading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -17,31 +18,54 @@ export const TerminalFooter = () => {
     }
   }, [history]);
 
-  const handleCommand = (e: React.FormEvent) => {
+  const handleCommand = async (e: React.FormEvent) => {
     e.preventDefault();
     const cmd = input.trim().toLowerCase();
+    const originalInput = input.trim();
     
     if (step === "command") {
       if (cmd === "contact --send") {
-        setHistory([...history, `> ${input}`, "System: Entering contact mode...", "Enter your email:"]);
+        setHistory([...history, `> ${originalInput}`, "System: Entering contact mode...", "Enter your email:"]);
         setStep("email");
       } else if (cmd === "help") {
-        setHistory([...history, `> ${input}`, "Available commands: contact --send, clear, resume"]);
+        setHistory([
+          ...history, 
+          `> ${originalInput}`, 
+          "Available commands:",
+          "  contact --send  : Send a direct email to Sanyam",
+          "  clear           : Clear the terminal output"
+        ]);
       } else if (cmd === "clear") {
         setHistory([]);
       } else {
-        setHistory([...history, `> ${input}`, `Command not found: ${cmd}. Type 'help' for options.`]);
+        setHistory([...history, `> ${originalInput}`, `Command not found: ${cmd}. Type 'help' for options.`]);
       }
     } else if (step === "email") {
-      setHistory([...history, `> ${input}`, "Enter your message:"]);
+      setUserEmail(originalInput);
+      setHistory([...history, `> ${originalInput}`, "Enter your message:"]);
       setStep("message");
     } else if (step === "message") {
-      setHistory([...history, `> ${input}`, "System: Encrypting and sending..."]);
+      setHistory([...history, `> ${originalInput}`, "System: Encrypting and sending..."]);
       setStep("sending");
-      setTimeout(() => {
-        setHistory([...history, `> ${input}`, "System: Message sent successfully!"]);
-        setStep("success");
-      }, 2000);
+      
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: userEmail, message: originalInput }),
+        });
+
+        if (res.ok) {
+          setHistory(prev => [...prev, "System: Message sent successfully!", "System: Connection established."]);
+          setStep("command");
+        } else {
+          setHistory(prev => [...prev, "System: Error sending message. Please try again or use direct email."]);
+          setStep("command");
+        }
+      } catch (error) {
+        setHistory(prev => [...prev, "System: Network error. Failed to send message."]);
+        setStep("command");
+      }
     }
     setInput("");
   };
@@ -62,15 +86,15 @@ export const TerminalFooter = () => {
   return (
     <footer className="w-full max-w-4xl mx-auto pb-20 px-5">
       <div className="flex flex-col md:flex-row gap-8 items-start">
-        <div className="flex-1 w-full bg-black border border-white/[0.2] rounded-xl overflow-hidden shadow-2xl">
-          <div className="bg-neutral-900 px-4 py-2 border-b border-white/10 flex items-center justify-between">
-            <div className="flex gap-1.5">
-              <div className="h-3 w-3 rounded-full bg-red-500/50" />
-              <div className="h-3 w-3 rounded-full bg-yellow-500/50" />
-              <div className="h-3 w-3 rounded-full bg-green-500/50" />
+        <div className="flex-1 w-full bg-[#0a0a0a] border border-white/[0.05] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+          <div className="bg-neutral-900/40 backdrop-blur-md px-4 py-3 border-b border-white/5 flex items-center justify-between">
+            <div className="flex gap-1.5 opacity-50 hover:opacity-100 transition-opacity">
+              <div className="h-3 w-3 rounded-full bg-[#ff5f56]" />
+              <div className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+              <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
             </div>
-            <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">ship-terminal.exe</span>
-            <Terminal className="h-3 w-3 text-neutral-500" />
+            <span className="text-xs font-medium text-neutral-500">Terminal</span>
+            <Terminal className="h-4 w-4 text-neutral-600" />
           </div>
           
           <div ref={scrollRef} className="h-64 p-4 font-mono text-sm overflow-y-auto no-scrollbar bg-black/50 backdrop-blur-sm">
@@ -79,9 +103,9 @@ export const TerminalFooter = () => {
                 {line}
               </div>
             ))}
-            {step !== "sending" && step !== "success" && (
+            {step !== "sending" && (
               <form onSubmit={handleCommand} className="flex mt-1">
-                <span className="text-green-500 mr-2">$</span>
+                <span className="text-blue-500 mr-3">❯</span>
                 <input
                   type="text"
                   value={input}
@@ -91,24 +115,19 @@ export const TerminalFooter = () => {
                 />
               </form>
             )}
-            {step === "success" && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2 text-green-400 mt-2">
-                <CheckCircle2 className="h-4 w-4" /> Connection established.
-              </motion.div>
-            )}
           </div>
         </div>
 
         <div className="w-full md:w-72 flex flex-col gap-4">
-          <h3 className="text-xl font-bold text-neutral-200">Ready to build?</h3>
-          <p className="text-sm text-neutral-500">
+          <h3 className="text-xl font-semibold text-neutral-200">Ready to build?</h3>
+          <p className="text-base font-light leading-relaxed text-neutral-400">
             I'm currently looking for 2026 Grad roles. Let's create something meaningful together.
           </p>
           
           <button
             onClick={handleDownload}
             disabled={isDownloading}
-            className="relative flex items-center justify-center gap-2 w-full py-4 bg-white text-black rounded-xl font-bold transition-all hover:bg-neutral-200 disabled:opacity-70 overflow-hidden"
+            className="relative flex items-center justify-center gap-2 w-full py-3.5 bg-[#0a0a0a] text-neutral-300 border border-white/[0.05] rounded-full font-medium transition-all duration-300 hover:bg-blue-500/5 hover:text-blue-400 hover:border-blue-500/30 disabled:opacity-70 overflow-hidden shadow-lg"
           >
             {isDownloading ? (
               <>
