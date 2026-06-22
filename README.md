@@ -1,6 +1,6 @@
 # Sanyam Phartyal | Full-Stack Developer
 
-A specialized developer engineering high-performance ecosystems and **real-time P2P systems**. Focused on precision-built web applications with a current **9.45 CGPA** academic standing.
+A specialized developer engineering **scalable web applications** and **robust backend architectures**. Focused on precision-built high-performance ecosystems with a current **9.45 CGPA** academic standing.
 
 ## Featured Project: Ghoststream
 **Ghoststream** is a real-time, peer-to-peer file-sharing ecosystem.

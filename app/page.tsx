@@ -175,9 +175,7 @@ export default function Home() {
   return (
     <main className="min-h-screen text-white py-20 px-5 flex flex-col items-center relative z-10 overflow-x-hidden scroll-mt-20">
       <div id="identity" className="max-w-5xl w-full mb-24 mt-10 relative scroll-mt-32">
-        <div className="absolute -top-10 -left-10 font-medium text-[10px] text-neutral-600 hidden md:block uppercase tracking-widest">
-          Location: India &bull; Status: Available for Hire
-        </div>
+
         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
           <div className="relative group">
             <div className="absolute -top-2 -left-2 h-8 w-8 border-t-2 border-l-2 border-blue-500/40" />
@@ -197,7 +195,7 @@ export default function Home() {
               </div>
               <h1 className="text-5xl md:text-8xl font-bold tracking-tight">SANYAM<span className="text-blue-500">.</span></h1>
               <p className="max-w-xl text-xl text-neutral-400 font-light leading-relaxed italic">
-                Full-Stack Architect specialized in high-performance ecosystems. Currently engineering <span className="text-white">real-time P2P systems</span> and optimizing document processing with <span className="text-white">9.45 CGPA precision</span>.
+                Full-Stack Architect specialized in high-performance ecosystems. Currently engineering <span className="text-white">scalable web applications</span> and robust backend architectures with <span className="text-white">9.45 CGPA precision</span>.
               </p>
             </div>
             <div className="flex flex-wrap gap-x-12 gap-y-4 pt-4 border-t border-white/5">
@@ -219,10 +217,6 @@ export default function Home() {
                 <SiLinkedin className="h-4 w-4 text-neutral-500 group-hover:text-blue-400 transition-colors" />
                 <span className="text-sm font-medium text-neutral-500 group-hover:text-white transition-colors">/linkedin</span>
               </a>
-              <div className="flex items-center gap-2 text-blue-400">
-                <Activity className="h-4 w-4" />
-                <span className="text-sm font-medium uppercase tracking-wide">Available</span>
-              </div>
             </div>
           </div>
         </div>
@@ -245,7 +239,13 @@ export default function Home() {
               <div className="absolute bottom-2 right-2 h-4 w-4 border-b border-r border-blue-500/30 z-20" />
               <BentoGridItem
                   title={<div className="space-y-1"><h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Ghoststream</h3><p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: LIVE</p></div>}
-                  description="Real-time P2P sharing via WebRTC."
+                  description={
+                    <ul className="list-disc list-inside mt-2 space-y-1 text-xs text-neutral-400">
+                      <li>Real-time P2P sharing via WebRTC</li>
+                      <li>Direct data streaming for fast transfers</li>
+                      <li>Built with Socket.io & Next.js</li>
+                    </ul>
+                  }
                   header={
                     <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden">
                       <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105 flex items-center">
@@ -271,7 +271,13 @@ export default function Home() {
                     <p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: LIVE</p>
                   </div>
                 }
-                description="A secure, transparent voting system with receipt-based cryptographic verification." 
+                description={
+                  <ul className="list-disc list-inside mt-2 space-y-1 text-xs text-neutral-400">
+                    <li>Secure and transparent voting platform</li>
+                    <li>Receipt-based cryptographic verification</li>
+                    <li>Tamper-proof election results</li>
+                  </ul>
+                } 
                 header={
                   <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden rounded-xl border border-white/5">
                     <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
@@ -286,7 +292,7 @@ export default function Home() {
             </Link>
 
             <Link 
-              href="https://github.com/Sanyam2511/repolens" 
+              href="https://repo-lens-web.vercel.app/" 
               target="_blank" 
               className="md:col-span-2 group relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.01] hover:border-purple-500/30 transition-all"
             >
@@ -297,7 +303,13 @@ export default function Home() {
                     <p className="text-[10px] font-mono text-neutral-500 uppercase">STATUS: LIVE</p>
                   </div>
                 }
-                description="Decode complex codebases instantly with dynamic dependency maps and Gemini-powered context-aware AI chat." 
+                description={
+                  <ul className="list-disc list-inside mt-2 space-y-1 text-xs text-neutral-400">
+                    <li>Instantly decode complex codebases</li>
+                    <li>Dynamic repository dependency mapping</li>
+                    <li>Gemini-powered context-aware AI chat</li>
+                  </ul>
+                } 
                 header={
                   <div className="relative flex-1 w-full h-full min-h-[12rem] overflow-hidden rounded-xl border border-white/5">
                     <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
@@ -313,7 +325,13 @@ export default function Home() {
 
             <BentoGridItem 
               title="Portfolio V2" 
-              description="Next.js 14 developer environment." 
+              description={
+                <ul className="list-disc list-inside mt-2 space-y-1 text-xs text-neutral-400">
+                  <li>Next.js 14 developer environment</li>
+                  <li>Framer Motion for fluid animations</li>
+                  <li>Tailwind CSS styling</li>
+                </ul>
+              } 
               header={<div className="flex flex-1 w-full h-full min-h-[6rem] bg-neutral-900/50 rounded-xl border border-white/5 p-4 relative overflow-hidden"><Code className="absolute bottom-2 right-2 w-12 h-12 opacity-10" /></div>} 
               icon={<Code className="h-4 w-4 text-neutral-500" />} 
               className="md:col-span-1 border border-white/5 bg-white/[0.01]" 

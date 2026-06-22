@@ -3,12 +3,9 @@
 import { motion } from "framer-motion";
 import { Aperture } from "lucide-react";
 
-import Link from "next/link";
-
 export const RepoLensCard = () => {
   return (
-    <Link href="https://repo-lens-web.vercel.app/" target="_blank" className="block w-full h-full">
-      <div className="flex flex-col w-full h-full min-h-[14rem] bg-neutral-950 relative overflow-hidden group rounded-xl">
+    <div className="flex flex-col w-full h-full min-h-[14rem] bg-neutral-950 relative overflow-hidden group rounded-xl">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]" />
       
       {/* Central Ambient Glow */}
@@ -128,7 +125,6 @@ export const RepoLensCard = () => {
            Gemini_Engine
          </span>
       </div>
-      </div>
-    </Link>
+    </div>
   );
 };
